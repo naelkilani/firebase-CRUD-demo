@@ -1,0 +1,17 @@
+<h1>Customers
+    <a [routerLink]="['/customers/create']" class="btn btn-primary" role="button">Create</a>
+</h1>
+<div class="customers">
+    <div *ngFor="let customer of customers">
+        <customer-details [customer]="customer"></customer-details>
+    </div>
+    
+    <div *ngIf="customers && customers.length > 0" class="actions">
+        <button class="btn btn-danger" (click)="deleteCustomers()">Delete All</button>
+    </div>
+    
+    <div *ngIf="!customers || customers.length == 0" class="alert alert-info" role="alert">
+        No customers to display!
+    </div>
+</div>
+
